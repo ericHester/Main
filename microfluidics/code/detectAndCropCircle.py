@@ -12,6 +12,15 @@ ap.add_argument("-i", "--input", required = True, help = "Directory to images")
 ap.add_argument("-o", "--output",required = True, help = "Directory to write cropped images")
 args = vars(ap.parse_args())
 
+
+#Check if output directory exists to prevent overwriting
+try:
+    os.makedirs(args["output"])
+except OSError as e:
+    if os.path.exists(args["output"]):
+        sys.exit("Error creating output directory; already exists")
+
+
 #img1 = cv2.imread(args["image"])
 #img = cv2.imread(args["image"],0)
 #print(os.listdir(args["input"]))
