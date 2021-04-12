@@ -108,7 +108,7 @@ E <- statsMat$E
 u <- E/num
 lines(u,a,log='y',col='red')
 
-#print a table of number of Sporadic verus Core OTUs
+#print a table of number of Sporadic verus stable OTUs
 output <- data.frame(row.names = c(group))
 output$Stable <- length(which(1-conf<0.01))
 output$Sporadic <- length(which(1-conf>0.01))
@@ -116,6 +116,10 @@ output$PerCore <- signif(output$Stable/numrows*100,3)
 output$PerSatellite <- signif(output$Sporadice/numrows*100,3)
 
 print(output)
+
+#find which OTUs are stable versus sporadic at a 0.01 significance level
+stable_OTUs <- which(1-conf < 0.01)
+sporadic_OTUs <- which(1-conf > 0.01)
 
 
 
