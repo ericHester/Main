@@ -110,10 +110,10 @@ lines(u,a,log='y',col='red')
 
 #print a table of number of Sporadic verus Core OTUs
 output <- data.frame(row.names = c(group))
-output$Core <- length(which(1-conf<0.01))
-output$Satellite <- length(which(1-conf>0.01))
-output$PerCore <- signif(output$Core/numrows*100,3)
-output$PerSatellite <- signif(output$Satellite/numrows*100,3)
+output$Stable <- length(which(1-conf<0.01))
+output$Sporadic <- length(which(1-conf>0.01))
+output$PerCore <- signif(output$Stable/numrows*100,3)
+output$PerSatellite <- signif(output$Sporadice/numrows*100,3)
 
 print(output)
 
