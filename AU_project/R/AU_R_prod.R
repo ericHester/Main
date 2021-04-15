@@ -4,6 +4,8 @@
 #2021-4-12
 
 setwd("D:/Projects/AU_projec/")
+library(Matrix)
+library(pracma)
 
 # Functions ---------------------------------------------------------------
 AU <- function(M){
@@ -113,7 +115,7 @@ output <- data.frame(row.names = c(group))
 output$Stable <- length(which(1-conf<0.01))
 output$Sporadic <- length(which(1-conf>0.01))
 output$PerCore <- signif(output$Stable/numrows*100,3)
-output$PerSatellite <- signif(output$Sporadice/numrows*100,3)
+output$PerSatellite <- signif(output$Sporadic/numrows*100,3)
 
 print(output)
 
